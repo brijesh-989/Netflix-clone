@@ -11,6 +11,7 @@ function HomePage() {
   const [trendingCard, setTreadingCard] = useState(null);
   const [currValue, setCurrValue] = useState(0);
   const [movieTrailer, setMovieTrailer] = useState(null);
+  const [isPlaying,setIsPlaying]=useState(false);
   useEffect(() => {
     if (trendingCard === null) {
       movieStore.trendingMovie().then(() => {
@@ -41,12 +42,16 @@ function HomePage() {
     setCurrValue(Math.max(currValue - 4, 0));
   };
   const handlePreview = (id) => {
+    
     movieStore.MovieTrailer(id).then(() => {
       setMovieTrailer(
         `https://www.youtube.com/embed/${movieStore.movies.movieTrailerById?.[0].key}`
       );
-    });
+    }).then(()=>{
+      setIsPlaying(true);
+    })
   };
+
   return (
     <>
       <header className="hero-bg">
@@ -96,22 +101,22 @@ function HomePage() {
               <FontAwesomeIcon icon={faChevronRight} color="#fff" size="xl" />
             </button>
           </div>
-          <div>
-            {movieTrailer ? (
+        </div>
+        {isPlaying && <div className="black-overlay">
+        <div className="movie-container">
+            {movieTrailer && (
               <iframe
-                width="560"
-                height="315"
+                width="800"
+                height="500"
                 src={movieTrailer}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
-            ) : (
-              <p>Loading trailer...</p>
             )}
           </div>
-        </div>
+          </div>}
       </section>
       <div>
       </div>
