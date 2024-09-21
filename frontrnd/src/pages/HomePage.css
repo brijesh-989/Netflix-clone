@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.hero-bg {
+  background-image: linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.9)),
+    url("../assets/hero.png");
+}
+.section-logo {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.netflix-logo {
+  margin-left: 200px;
+  height: 55px;
+}
+
+.nav-button {
+  margin-right: 200px;
+  width: 100px;
+  height: 35px;
+  box-sizing: border-box;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+  color: #fff;
+  background: #e50914;
+  cursor: pointer;
+}
+.banner-section {
+  margin: 100px 300px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.banner-section h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 80px;
+}
+.banner-section h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 100px;
+}
+.start-email {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 100px;
+}
+.start-email label {
+  position: absolute;
+  color: #fff;
+  font-size: 20px;
+  transform: translate(20%, 70%);
+  pointer-events: none;
+  transition: 0.5s;
+}
+.start-email input {
+  border: none;
+  border-radius: 0.25rem;
+  background: linear-gradient(rgb(0, 0, 0, 0.2), rgb(0, 0, 0, 1));
+  box-sizing: border-box;
+  border-width: 1rem;
+  width: 350px;
+  color: #fff;
+  border: 1px solid white;
+  padding: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.start-email input:focus ~ label,
+.start-email input:valid ~ label {
+  transform: translate(20%, 20%);
+  font-size: 16px;
+}
+.start-email button {
+  height: 40px;
+  width: 200px;
+  min-height: 3.5rem;
+  border-radius: 0.25rem;
+  background-color: #e50914;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.start-email button:hover,
+.start-email button:active {
+  background-color: rgb(153, 4, 11);
+}
+.header-bottom-design {
+  position: relative; /* Ensure it can handle absolute positioning of ::before */
+  height: 40px;
+  border-top: 0.25rem solid transparent;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  background: linear-gradient(
+    to right,
+    rgba(33, 13, 22, 1) 16%,
+    rgba(184, 40, 105, 1),
+    rgba(229, 9, 20, 1),
+    rgba(184, 40, 105, 1),
+    rgba(33, 13, 22, 1) 84%
+  ); /* Background color for pseudo-element */
+
+  z-index: 1;
+  margin-top: -10px; /* Moves the design up by 10px */
+}
+
+.header-bottom-design::before {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute; /* Positioned relative to parent */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px; /* Match parent height */
+  background: radial-gradient(
+      50% 500% at 50% -420%,
+      rgba(64, 97, 231, 0.4) 80%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    black;
+  border-radius: inherit;
+}
+/* border-radius: inherit; Inherit border-radius if needed */
+.netflix-body {
+  background: radial-gradient(
+      0% 0% at 0% 0%,
+      rgba(64, 97, 231, 0.4) 80%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    black;
+}
+.movie-wall {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  gap: 80px;
+}
+.next-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  padding: 100px;
+}
+.movie-card {
+  width: 200px;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.movie-card img {
+  width: 100%;
+  object-fit: cover;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.movie-card:hover,
+.movie-card:active {
+  transform: scale(1.1) translateZ(20px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.nextBT {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: black;
+}
+.nextBT:hover,
+.nextBT:active {
+  background-color: gray;
+  transform: scale(1.2);
+}
+.movie-card-bt {
+  border: none;
+}
